@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        https://www.springframework.org/schema/context/spring-context.xsd">
+
+<!--    <bean id="bookDao" class="com.ming.dao.impl.BookDaoImpl">-->
+<!--        <property name="num" value="1"/>-->
+<!--    </bean>-->
+    <bean id="bookDao1" class="com.ming.dao.impl.BookDaoImpl">
+        <property name="al">
+            <list>
+                <value>itheima</value>
+                <value>66666</value>
+            </list>
+        </property>
+        <property name="properties">
+            <props>
+                <prop key="name">itheima666</prop>
+                <prop key="value">666666</prop>
+            </props>
+        </property>
+        <property name="arr">
+            <array>
+                <value>123456</value>
+                <value>666666</value>
+            </array>
+        </property>
+        <property name="hs">
+            <set>
+                <value>itheima</value>
+                <value>66666</value>
+            </set>
+        </property>
+        <property name="hm">
+            <map>
+                <entry key="name" value="itheima53w453"/>
+                <entry key="value" value="244444444"/>
+            </map>
+        </property>
+    </bean>
+</beans>

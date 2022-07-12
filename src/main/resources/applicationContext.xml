@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c" xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:property-placeholder location="classpath:*.properties"/>
+
+
+
+<!--    <bean id="userService" class="com.ming.service.impl.UserServiceImpl"/>-->
+<!--    <bean id="userService" name="userService1,userService2" scope="prototype" class="com.ming.service.impl.UserServiceImpl" init-method="init" destroy-method="destroy"/>-->
+<!--    <bean id="userService1" class="com.ming.service.UserServiceFactory" factory-method="getService"/>-->
+
+<!--    <bean id="factoryBean" class="com.ming.service.UserServiceFactory2"/>-->
+
+<!--    <bean id="userService2" factory-bean="factoryBean" factory-method="getService"/>-->
+    <bean id="userService" class="com.ming.service.impl.UserServiceImpl" >
+<!--        <property name="userDao" ref="userDao"/>-->
+<!--        <property name="num" value="666"/>-->
+<!--        <property name="version" value="itheima"/>-->
+<!--        <property name="bookDao" ref="bookDao"/>-->
+<!--        <constructor-arg name="userDao" ref="userDao"/>-->
+<!--        <constructor-arg name="num" value="666666"/>-->
+<!--        <constructor-arg name="version" value="itcast"/>-->
+        <property name="userDao" value="#{userDao}"/>
+        <property name="bookDao" value="#{bookDao}"/>
+    </bean>
+    <bean id="bookDao" class="com.ming.dao.impl.BookDaoImpl">
+        <property name="al">
+            <list>
+                <value>itheima</value>
+                <value>66666</value>
+            </list>
+        </property>
+        <property name="properties">
+            <props>
+                <prop key="name">itheima666</prop>
+                <prop key="value">666666</prop>
+            </props>
+        </property>
+        <property name="arr">
+            <array>
+                <value>123456</value>
+                <value>666666</value>
+            </array>
+        </property>
+        <property name="hs">
+            <set>
+                <value>itheima</value>
+                <value>66666</value>
+            </set>
+        </property>
+        <property name="hm">
+            <map>
+                <entry key="name" value="itheima53w453"/>
+                <entry key="value" value="3333333333"/>
+            </map>
+        </property>
+    </bean>
+    <bean id="userDao" class="com.ming.dao.impl.UserDaoImpl">
+<!--        <constructor-arg index="0" value="com.mysql.jdbc.Driver"/>-->
+<!--        <constructor-arg index="1" value="root"/>-->
+<!--        <constructor-arg index="2" value="123456"/>-->
+        <property name="username" value="${username}"/>
+        <property name="pwd" value="${pwd}"/>
+    </bean>
+<!--    <bean id="bookDao" class="com.ming.dao.impl.BookDaoImpl">-->
+<!--        <property name="al">-->
+<!--            <list>-->
+<!--                <value>itheima</value>-->
+<!--                <value>66666</value>-->
+<!--            </list>-->
+<!--        </property>-->
+<!--        <property name="properties">-->
+<!--            <props>-->
+<!--                <prop key="name">itheima666</prop>-->
+<!--                <prop key="value">666666</prop>-->
+<!--            </props>-->
+<!--        </property>-->
+<!--        <property name="arr">-->
+<!--            <array>-->
+<!--                <value>123456</value>-->
+<!--                <value>666666</value>-->
+<!--            </array>-->
+<!--        </property>-->
+<!--        <property name="hs">-->
+<!--            <set>-->
+<!--                <value>itheima</value>-->
+<!--                <value>66666</value>-->
+<!--            </set>-->
+<!--        </property>-->
+<!--        <property name="hm">-->
+<!--            <map>-->
+<!--                <entry key="name" value="itheima53w453"/>-->
+<!--                <entry key="value" value="244444444"/>-->
+<!--            </map>-->
+<!--        </property>-->
+<!--    </bean>-->
+    <import resource="applicationContext-book.xml"/>
+</beans>
